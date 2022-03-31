@@ -7,7 +7,7 @@ create table call_info
     status        enum ('success', 'missed', 'busy', 'not_available', 'not_allowed') not null,
     duration      float                                                              not null,
     start_date    datetime                                                           null
-);
+) DEFAULT CHARSET=utf8;
 create table employee
 (
     id          int auto_increment primary key,
@@ -15,7 +15,7 @@ create table employee
     second_name varchar(255) default '' not null,
     patronymic  varchar(255) default '' not null,
     position    varchar(255) default '' not null
-);
+) DEFAULT CHARSET = utf8;
 create table phone_number
 (
     id          int auto_increment
@@ -24,7 +24,7 @@ create table phone_number
     employee_id int         not null,
     constraint phone_number_ibfk_1
         foreign key (employee_id) references employee (id)
-);
+) DEFAULT CHARSET = utf8;
 
 INSERT INTO call_info (type, income_phone, outcome_phone, status, duration, start_date)
 VALUES ('income', '79999990001', '79999999999', 'success', 10, '2022-01-01'),
@@ -42,7 +42,7 @@ VALUES ('income', '79999990001', '79999999999', 'success', 10, '2022-01-01'),
 
 INSERT INTO employee (name, second_name, patronymic, position)
 VALUES ('Иван', 'Иванов', 'Иванович', 'Менеджер по продажам'),
-        ('Светлана', 'Петрова', 'Сергеевна', 'Менеджер по продажам');
+       ('Светлана', 'Петрова', 'Сергеевна', 'Менеджер по продажам');
 
 INSERT INTO phone_number (phone, employee_id)
 VALUES ('79999990001', 1),

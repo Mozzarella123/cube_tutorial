@@ -19,9 +19,12 @@ services:
   database:
     image: mysql
     command: "--default-authentication-plugin=mysql_native_password"
+    volumes:
+      - ./data.sql:/docker-entrypoint-initdb.d/data.sql
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=cube_db
+      - LANG=C.UTF-8
     ports: 
       - "3307:3306"
 
