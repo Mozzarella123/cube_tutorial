@@ -1,0 +1,20 @@
+{
+  "dimensions": [
+    "Employee.initials"
+  ],
+  "timeDimensions": [
+    {
+      "dimension": "CallInfo.startDate",
+      "dateRange": [
+        "2022-01-01",
+        "2022-01-02"
+      ]
+    }
+  ],
+  "order": {
+    "CallInfo.countMissed": "desc"
+  },
+  "measures": [
+    "CallInfo.countMissed"
+  ]
+}

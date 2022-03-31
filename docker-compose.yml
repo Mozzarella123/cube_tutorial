@@ -3,9 +3,11 @@ version: '3.8'
 services:
   cube:
     image: cubejs/cube
+    depends_on:
+      - database
     ports:
       - "4001:4000"
-    restart: on-failure
+
     environment:
       - CUBEJS_DEV_MODE=true
       - CUBEJS_DB_HOST=database
@@ -13,7 +15,7 @@ services:
       - CUBEJS_DB_USER=root
       - CUBEJS_DB_PASS=root
       - CUBEJS_DB_TYPE=mysql
-      - CUBEJS_API_SECRET=secret
+      - CUBEJS_API_SECRET=SECRET
     volumes:
       - .:/cube/conf
   database:
@@ -27,4 +29,10 @@ services:
       - LANG=C.UTF-8
     ports: 
       - "3307:3306"
-
+  query:
+    image: cfmanteiga/alpine-bash-curl-jq
+    depends_on:
+      - cube
+    volumes:
+      - .:/query
+    entrypoint: [ "sh", "query/queries/run.sh" ]

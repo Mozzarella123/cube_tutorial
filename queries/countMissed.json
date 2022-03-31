@@ -1,0 +1,16 @@
+{
+  "measures": [
+    "CallInfo.countMissed"
+  ],
+  "timeDimensions": [
+    {
+      "dimension": "CallInfo.startDate",
+      "dateRange": [
+        "2022-01-01",
+        "2022-01-02"
+      ]
+    }
+  ],
+  "order": {},
+  "filters": []
+}

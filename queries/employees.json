@@ -1,0 +1,11 @@
+{
+  "dimensions": [
+    "Employee.initials",
+    "Employee.position"
+  ],
+  "timeDimensions": [],
+  "order": {
+    "CallInfo.startDate": "asc"
+  },
+  "measures": []
+}
